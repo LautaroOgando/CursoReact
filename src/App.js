@@ -1,31 +1,15 @@
+import logo from './logo.svg';
+import './App.css';
+import Navbar from './component/Navbar/Navbar';
 
-import "./App.css";
-import Navbar from "./components/Navbar/Navbar";
-import ItemListContainer from "./components/ItemListContainer";
+import React,{useState,useEffect} from 'react';
+import Main from './component/Main/Main';
 function App() {
+
+
   return (
-    <div className="App">
-<<<<<<< HEAD
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Lautaro Ogando
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Future Systems Engineer
-        </a>
-      </header>
-=======
-      <Navbar/>
-      <ItemListContainer
-      greeting="Productos Destacados"
-      />
->>>>>>> d104494f307cc2e8b5cf0f8e8aa4f3fbfe835c95
+    <div>
+      <Main/>
     </div>
   );
 }
