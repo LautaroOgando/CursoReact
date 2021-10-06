@@ -1,9 +1,11 @@
-import logo from "./logo.svg";
-import "./App.css";
 
+import "./App.css";
+import Navbar from "./components/Navbar/Navbar";
+import ItemListContainer from "./components/ItemListContainer";
 function App() {
   return (
     <div className="App">
+<<<<<<< HEAD
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -18,6 +20,12 @@ function App() {
           Future Systems Engineer
         </a>
       </header>
+=======
+      <Navbar/>
+      <ItemListContainer
+      greeting="Productos Destacados"
+      />
+>>>>>>> d104494f307cc2e8b5cf0f8e8aa4f3fbfe835c95
     </div>
   );
 }
