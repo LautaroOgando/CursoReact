@@ -7,7 +7,7 @@ import ItemDetails from '../ItemDetails/ItemDetails';
 
 const ItemDetailContainer = () => {
 
-    
+ 
     const [detalle, setDetalle] = useState(null);
     
     const {id}=useParams();
@@ -36,7 +36,7 @@ const ItemDetailContainer = () => {
          <div>
         {detalle && 
             
-            <ItemDetails initial={initial}  item={detalle} stock={stock} onAdd={onAdd} removeAdd={removeAdd} checkStock={checkStock} />
+            <ItemDetails   item={detalle}  />
 
         }
     </div>
