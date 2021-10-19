@@ -35,8 +35,7 @@ const ItemDetails = ({item}) => {
     }, [buy])
 
     return (
-         
-    
+        
         <div className="row p-1">
         <div className="col-sm-2">
         <div class="card">
