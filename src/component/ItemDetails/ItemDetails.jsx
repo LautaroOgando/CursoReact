@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React,{useEffect, useState} from 'react';
 import Item from '../Item/Item';
+import { Link } from 'react-router-dom';
 
 const ItemDetails = ({item,initial,stock,onAdd,removeAdd,checkStock}) => {
 
@@ -10,7 +11,7 @@ const ItemDetails = ({item,initial,stock,onAdd,removeAdd,checkStock}) => {
         <div className="row p-1">
         <div className="col-sm-2">
         <div class="card">
-        <img src={item.img} class="card-img-top" alt="..."/>
+        <img src={item.data.image} class="card-img-top" alt="..."/>
         <div class="card-body">
           <h5 class="card-title"></h5>
           <p class="card-text">{item.nombre}</p>
@@ -20,15 +21,16 @@ const ItemDetails = ({item,initial,stock,onAdd,removeAdd,checkStock}) => {
           <div class="input-group mb-3">
   <input type="text" class="form-control" placeholder={initial} aria-label="Username" aria-describedby="basic-addon1"/>
           </div>
+          <button class="form-control" onClick={()=>checkStock()} >Agregar Al Carrito</button>
+          <br />
           <div class="input-group mb-3">
-  <button class="form-control" onClick={()=>checkStock()} >Agregar Al Carrito</button>
-          </div>
-          <button type="button" class="btn btn-primary" >Volver</button>
+            
+  <Link to={"/stock"} className="btn btn-primary  ">Volver</Link>
         </div>
         </div>
       </div>
       </div>
-      
+      </div>
 
 
     )

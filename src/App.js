@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './component/Navbar/Navbar';
 import axios from 'axios';
 import {BrowserRouter,Switch,Route} from 'react-router-dom'
-
+import ItemListContainer from './component/ItemListContainer/ItemList';
 import React,{useState,useEffect} from 'react';
 import Main from './component/Main/Main';
 import { computeHeadingLevel } from '@testing-library/dom';
@@ -11,13 +11,25 @@ import ItemDetailContainer from './component/ItemDetailContainer/ItemDetailConta
 
 function App() {
 
-  const[pokemons,setPoke]=useState(null);
   
   return (
-    <div>
-      <Navbar/>
-     <Main/>
-    </div>
+   <BrowserRouter>
+   <Navbar/>
+   <Switch>
+    <Route exact path="/">
+    <Main/>
+    </Route>
+    <Route exact path="/stock/">
+      <ItemListContainer/>
+    </Route>
+    <Route exact path="/detail/:id">
+      <ItemDetailContainer/>
+    </Route>
+    <Route exact path="*">
+      <h1>404</h1>
+    </Route>
+   </Switch>
+   </BrowserRouter>
   );
 }
 
