@@ -7,12 +7,11 @@ import ItemDetails from '../ItemDetails/ItemDetails';
 
 const ItemDetailContainer = () => {
 
- 
     const [detalle, setDetalle] = useState(null);
     
     const {id}=useParams();
 
-   
+    
                 
       const getDetalle= async()=>{
         try{
@@ -24,14 +23,20 @@ const ItemDetailContainer = () => {
         }
     }
 
-
-        useEffect(()=>{
-           
-           getDetalle();
-           console.log(detalle)
-           console.log(id)
-           
-    },[]);
+        useEffect(() => {
+            if(detalle==null){
+            console.log('ok')
+            getDetalle();
+            console.log(detalle)
+            console.log(id)
+            }
+            return () => {
+                console.log('se cambio detalle')
+                console.log(detalle)
+            }
+        }, [detalle])
+        
+          
     return (
          <div>
         {detalle && 

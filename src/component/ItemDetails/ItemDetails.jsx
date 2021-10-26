@@ -3,36 +3,20 @@ import React,{useEffect, useState} from 'react';
 import Item from '../Item/Item';
 import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
+import {CartContext} from '../CartContext/CartContextProvider';
+import { useContext } from 'react';
 
 const ItemDetails = ({item}) => {
 
-    const [buy,setBuy]=useState(true);
-    const [stock, setStock] = useState(5);
-    const [initial, setInitial] = useState(1);
+    
 
-    const onAdd = () =>{
-      if(stock>initial) setInitial(initial+1); 
-     
-  }
-
-  const removeAdd = () =>{
-      if(initial>0) setInitial(initial-1); 
-  }
-  const checkStock= ()=>{
-
-      if(stock==0){
-       alert("Stock Agotado");
-      }else{
-        setStock(stock-initial);
-         setBuy(false);
-        setInitial(1);
-      }
-
-    }
+    console.log(item)
+    const {cartList,initial,stock,buy,removeAdd,checkStock,increment}= useContext(CartContext);
+    console.log(cartList)
 
     useEffect(() => {
-      console.log(buy)
-    }, [buy])
+      console.log(cartList)
+    }, [initial])
 
     return (
         
@@ -44,7 +28,7 @@ const ItemDetails = ({item}) => {
           <h5 class="card-title"></h5>
           <p class="card-text">{item.nombre}</p>
           {buy &&
-            <ItemCount stock={stock} initial={initial} onAdd={onAdd} removeAdd={removeAdd} checkStock={checkStock} />
+            <ItemCount stock={stock} item={item}initial={initial} increment={increment}  removeAdd={removeAdd} checkStock={checkStock} />
           }
           <br />
           <div class="input-group mb-3">

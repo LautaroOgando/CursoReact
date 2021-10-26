@@ -1,10 +1,11 @@
 import React,{useState} from 'react'
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 import { Link } from 'react-router-dom';
+import useEffect from 'react'
 
-const Item = ({item,initial,stock,onAdd,removeAdd,checkStock}) => {
+const Item = ({item}) => {
 
-    
+  
     
     return (
     
