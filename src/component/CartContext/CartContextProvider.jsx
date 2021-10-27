@@ -8,6 +8,7 @@ function CartContextProvider ({children})  {
     const [buy, setBuy] = useState(true);
     const [stock, setStock] = useState(15);
     const [initial, setInitial] = useState(1);
+    const[cartList,setcartList]=useState([])
 
     const removeAdd = () =>{
         if(initial>0) setInitial(initial-1); 
@@ -18,16 +19,39 @@ function CartContextProvider ({children})  {
          alert("Stock Agotado");
         }else{
           setStock(stock-initial);
-          setInitial(1);
-          //setcartList(...cartList,item)
+          const find=cartList.find(element=>element.id === item.data.id)
+          if(find==null){
+            
+          item.data.type=initial
+          setcartList([...cartList,item.data])
+          console.log(cartList)
+          }else{
+        
+          const find=cartList.find(element=>element.id === item.data.id)
+              find.type+=initial
+              console.log(find.type)
+          }
+        
+        setInitial(1);
         }
   
       }
   
-     
+     const clear=()=>{
+      setcartList([]);
+     }
 
+     const removeId=(id)=>{
+       
+          if(cartList.length==1){
+            setcartList([])
+          }else{
+            const borrar=cartList.find(element=>element.id != id)
+            setcartList([borrar])
+          }
+          
+     }
 
-     const[cartList,setcartList]=useState([])
 
      const increment=()=>{
         if(initial<stock) setInitial(initial+1)
@@ -41,7 +65,9 @@ function CartContextProvider ({children})  {
         buy,
         increment,
         removeAdd,
-        checkStock
+        checkStock,
+        clear,
+        removeId
        }}>
 
         {children}
