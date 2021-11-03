@@ -6,6 +6,7 @@ import Item from '../Item/Item'
 export const CartContext= createContext([])
 function CartContextProvider ({children})  {
     const [buy, setBuy] = useState(true);
+    const [finish,setFinish]=useState(false)
     const [stock, setStock] = useState(15);
     const [initial, setInitial] = useState(1);
     const[cartList,setcartList]=useState([])
@@ -25,11 +26,13 @@ function CartContextProvider ({children})  {
           item.data.type=initial
           setcartList([...cartList,item.data])
           console.log(cartList)
+          setFinish(true)
           }else{
         
           const find=cartList.find(element=>element.id === item.data.id)
               find.type+=initial
               console.log(find.type)
+              setFinish(true)
           }
         
         setInitial(1);
@@ -63,6 +66,7 @@ function CartContextProvider ({children})  {
         initial,
         stock,
         buy,
+        finish,
         increment,
         removeAdd,
         checkStock,

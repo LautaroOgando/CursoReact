@@ -9,9 +9,9 @@ import { useContext } from 'react';
 const ItemDetails = ({item}) => {
 
     
-
+    
     console.log(item)
-    const {cartList,initial,stock,buy,removeAdd,checkStock,increment}= useContext(CartContext);
+    const {cartList,initial,stock,buy,removeAdd,checkStock,increment,finish}= useContext(CartContext);
     console.log(cartList)
 
     useEffect(() => {
@@ -28,11 +28,11 @@ const ItemDetails = ({item}) => {
           <h5 class="card-title"></h5>
           <p class="card-text">{item.nombre}</p>
           {buy &&
-            <ItemCount stock={stock} item={item}initial={initial} increment={increment}  removeAdd={removeAdd} checkStock={checkStock} />
+            <ItemCount stock={stock} item={item} initial={initial} increment={increment} finish={finish} removeAdd={removeAdd} checkStock={checkStock} />
           }
           <br />
           <div class="input-group mb-3">
-  <Link to={"/stock"} className="btn btn-primary  ">Volver</Link>
+  <Link to={"/stock"} className="btn btn-primary">Volver</Link>
         </div>
         </div>
       </div>

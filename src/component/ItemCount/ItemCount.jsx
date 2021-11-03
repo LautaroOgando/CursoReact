@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-const ItemCount = ({initial,stock,increment,removeAdd,checkStock,item}) => {
+const ItemCount = ({initial,stock,increment,removeAdd,checkStock,item,finish}) => {
 
     useEffect(() => {
       console.log()
@@ -19,7 +19,9 @@ const ItemCount = ({initial,stock,increment,removeAdd,checkStock,item}) => {
           </div>
           <button class="form-control" onClick={()=>checkStock(item)} >Agregar Al Carrito</button>
           <br />
+          {finish &&
           <Link to={"/cart"}  className="btn btn-secondary  ">Terminar Compra</Link>
+          }
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import {CartContext} from '../CartContext/CartContextProvider';
 import { useContext } from 'react';
+import { Link } from 'react-router-dom'
 
 const Cart = () => {
 
@@ -19,7 +20,11 @@ const Cart = () => {
         <h6>Cantidad:{cartList.type}</h6>
       </div>
     </div>
+    
             ))}
+            <br />
+            <h1>No hay productos agregados</h1>
+            <Link to="/"><button className="btn btn-primary">Regresar</button></Link>
             <br />
             <button className="btn btn-danger" onClick={()=>clear()}>Eliminar Todo El Carrito</button>
 
